@@ -1,0 +1,33 @@
+- name: Delete instances
+  hosts: localhost
+  gather_facts: yes
+  vars:
+      gcp_project: d-automation-347210 
+      gcp_cred_kind: serviceaccount
+      gcp_cred_file: /home/ngf_natali/my_account.json
+      zone: "europe-west3-c"
+      region: "europe-west3"
+  tasks:
+   - name: delete vm and disk cascade
+     gcp_compute_instance:
+       state: absent
+       name: rocky-vm
+       #machine_type: n1-standard-1
+       zone: "{{ zone }}"
+       project: "{{ gcp_project }}"
+       auth_kind: "{{ gcp_cred_kind }}"
+       #service_account_file: "{{ gcp_cred_file }}"
+       scopes:
+         - https://www.googleapis.com/auth/compute
+     register: instance
+   - name: delete address-instance address
+     gcp_compute_address:
+         name: 'address-instance'
+         region: "{{ region }}"
+         project: "{{ gcp_project }}"
+         auth_kind: "{{ gcp_cred_kind }}"
+         #service_account_file: "{{ gcp_cred_file }}"
+         scopes:
+           - https://www.googleapis.com/auth/compute
+         state: absent
+     register: address

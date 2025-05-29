@@ -1,0 +1,48 @@
+---
+- name: Monlithic FE
+  hosts: frontends
+  remote_user: ansible
+  become: yes
+
+  tasks:
+    - name: Installing Apache, MySQL and PHP
+      yum:
+        name:
+          - httpd
+          - mariadb-server
+          - mariadb
+          - php 
+          - php-mysqlnd
+        state: installed
+
+    - name: Enabling and Starting the service httpd
+      service:
+        name: httpd
+        enabled: yes
+        state: started
+
+    - name: Enabling and Starting the service MySQL
+      service:
+        name: mariadb
+        enabled: yes
+        state: started
+
+    - name: Copying the php file
+      copy:
+        src: '{{item}}' 
+        dest: /var/www/html/
+        force: yes
+      loop:
+        - index.php
+        - phpinfo.php
+        - callWflowCleaner.php 
+    - name: firewalld rules
+      ansible.posix.firewalld:
+        service: "{{ item }}"
+        state: enabled
+        permanent: true
+        immediate: true
+      with_items:
+        - http
+        - https
+

@@ -1,0 +1,26 @@
+- name: Delete instances
+  hosts: localhost
+  gather_facts: yes
+  vars:
+      gcp_project: d-automation-347210
+      gcp_cred_kind: serviceaccount
+      gcp_cred_file: /home/ngf_natali/my_account.json
+      zone: "us-central1-a"
+      region: "us-central1"
+  tasks:
+  - name: create_firewall
+    google.cloud.gcp_compute_firewall:
+      name: penports
+      allowed:
+      - ip_protocol: tcp
+        ports:
+        - '22'
+        - '80'
+      target_tags:
+      - vmdemo
+      source_tags:
+      - test-ssh-clients
+      project: d-automation-347210
+      auth_kind: serviceaccount
+      state: present
+
