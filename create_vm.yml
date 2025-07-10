@@ -21,8 +21,6 @@
         service_account_file: /tmp/sa.json  # Replace with your key path
         image: "{{ image }}"
         state: present
-        network_interfaces:
-          - network: "projects/{{ project_id }}/global/networks/default"
       register: gcp_instance
     - debug:
         var: gcp_instance
