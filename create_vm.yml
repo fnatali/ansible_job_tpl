@@ -6,7 +6,7 @@
       gcp_project: mylab-465509 
       gcp_cred_kind: serviceaccount
       #gcp_cred_file: /tmp/sa.json
-      gcp_cred_name: myGCP
+      service_account_contents: "{{ lookup('credential', 'myGCP').service_account_contents }}"
       zone: "europe-west3-c"
       region: "europe-west3"
   tasks:
@@ -19,7 +19,7 @@
       project: "{{ gcp_project }}"
       auth_kind: "{{ gcp_cred_kind }}"
       #service_account_file: "{{ gcp_cred_file }}"
-      gcp_cred_name: myGCP
+      service_account_contents: "{{ lookup('credential', 'myGCP').service_account_contents }}"
       state: present
     register: disk
   
@@ -29,7 +29,7 @@
       project: "{{ gcp_project }}"
       auth_kind: "{{ gcp_cred_kind }}"
       #service_account_file: "{{ gcp_cred_file }}"
-      gcp_cred_name: myGCP
+      service_account_contents: "{{ lookup('credential', 'myGCP').service_account_contents }}"
       state: present
     register: network
   
@@ -40,7 +40,7 @@
       project: "{{ gcp_project }}"
       auth_kind: "{{ gcp_cred_kind }}"
       #service_account_file: "{{ gcp_cred_file }}"
-      gcp_cred_name: myGCP
+      service_account_contents: "{{ lookup('credential', 'myGCP').service_account_contents }}"
       state: present
     register: address
   
@@ -72,5 +72,5 @@
       project: mylab-465509 
       auth_kind: serviceaccount
       #service_account_file: "/tmp/sa.json"
-      gcp_cred_name: myGCP
+      service_account_contents: "{{ lookup('credential', 'myGCP').service_account_contents }}"
       state: present
