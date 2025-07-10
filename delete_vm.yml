@@ -38,30 +38,7 @@
 
   tasks:
 
-    - name: Create a disk
-
-      google.cloud.gcp_compute_disk:
-
-        name: "{{ disk_name }}"
-
-        size_gb: "{{ disk_size }}"
-
-        source_image: "{{ source_image }}"
-
-        zone: "{{ zone }}"
-
-        project: "{{ project }}"
-
-        auth_kind: serviceaccount
-
-        service_account_file: "{{ service_account_file }}"
-
-        state: absent
-
-      register: disk
-
     
-
     - name: Create a Network in GCP
 
       google.cloud.gcp_compute_network:
@@ -143,6 +120,14 @@
         machine_type: "{{ machine_type }}"
 
         zone: "{{ zone }}"
+
+        disks:
+
+          - auto_delete: true
+
+            boot: true
+
+            source: "{{ disk }}"
 
         network_interfaces:
 
