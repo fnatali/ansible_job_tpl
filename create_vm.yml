@@ -26,7 +26,7 @@
 
     zone: "europe-west3-c"
 
-    source_image: "projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-arm64-v20250701"
+    source_image: "projects/ubuntu-os-cloud/global/images/family/ubuntu-1804-lts"
 
     subnet_cidr: "10.0.1.0/24"
 
