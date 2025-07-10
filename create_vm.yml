@@ -3,9 +3,9 @@
   hosts: localhost
   gather_facts: yes
   vars:
-      gcp_project: d-automation-347210 
+      gcp_project: mylab-465509 
       gcp_cred_kind: serviceaccount
-      gcp_cred_file: /home/ngf_natali/my_account.json
+      gcp_cred_file: /tmp/sa.json
       zone: "europe-west3-c"
       region: "europe-west3"
   tasks:
