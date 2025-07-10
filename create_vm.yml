@@ -4,26 +4,25 @@
   connection: local
   gather_facts: false
   vars:
-    project_id: mylab-465509   # Replace with your GCP project ID
-    machine_type: n1-standard-1  # Replace with your desired machine type
-    zone: us-central1-a  # Replace with your desired zone
-    image: debian-cloud/debian-10  # Replace with your desired image
-    instance_name: my-awx-vm  # Replace with your desired instance name
-    network_name: default # Replace with your desired network name
+    project_id: mylab-465509   # Replace with your project ID
+    region: us-central1  # e.g., us-central1
+    zone: us-central1-a  # e.g., us-central1-a
+    instance_name: my-awx-vm
+    machine_type: e2-medium
+    image: debian-cloud/debian-11
   tasks:
-    - name: Create a GCP VM instance
+    - name: Create a new instance
       gcp_compute_instance:
         name: "{{ instance_name }}"
         machine_type: "{{ machine_type }}"
         zone: "{{ zone }}"
         project: "{{ project_id }}"
         auth_kind: serviceaccount
-        service_account_file: /tmp/sa.json  # Replace with your service account file
+        service_account_file: /tmp/sa.json  # Replace with your key path
         image: "{{ image }}"
-        network: "{{ network_name }}"
         state: present
-      register: gcp_vm
-
-    - name: Print instance details
-      debug:
-        var: gcp_vm
+        network_interfaces:
+          - network: projects/{{ project_id }}/global/networks/default
+      register: gcp_instance
+    - debug:
+        var: gcp_instance
