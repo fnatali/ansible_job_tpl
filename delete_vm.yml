@@ -1,6 +1,6 @@
 ---
 
-- name: Create instance in GCP
+- name: delete instance in GCP
 
   hosts: localhost
 
@@ -39,71 +39,11 @@
   tasks:
 
     
-    - name: Create a Network in GCP
-
-      google.cloud.gcp_compute_network:
-
-        auth_kind: serviceaccount
-
-        project: "{{ project }}"
-
-        service_account_file: "{{ service_account_file }}"
-
-        name: "{{ network_name }}"
-
-        auto_create_subnetworks: false
-
-        state: absent
-
-      register: network
-
-
-
-    - name: Create a Subnet in the Network
-
-      google.cloud.gcp_compute_subnetwork:
-
-        auth_kind: serviceaccount
-
-        project: "{{ project }}"
-
-        service_account_file: "{{ service_account_file }}"
-
-        name: "{{ subnet_name }}"
-
-        region: "{{ region }}"
-
-        ip_cidr_range: "{{ subnet_cidr }}"
-
-        network: "{{ network }}"
-
-        state: absent
-
-      register: subnet
-
-
-
-    - name: Reserve a static IP Address
-
-      google.cloud.gcp_compute_address:
-
-        auth_kind: serviceaccount
-
-        project: "{{ project }}"
-
-        service_account_file: "{{ service_account_file }}"
-
-        name: "{{ ip_name }}"
-
-        region: "{{ region }}"
-
-        state: absent
-
-      register: address
+  
 
         
 
-    - name: Create an Instance 
+    - name: delete an Instance 
 
       google.cloud.gcp_compute_instance:
 
@@ -121,24 +61,4 @@
 
         zone: "{{ zone }}"
 
-        disks:
-
-          - auto_delete: true
-
-            boot: true
-
-            source: "{{ disk }}"
-
-        network_interfaces:
-
-          - network: "{{ network }}"
-
-            subnetwork: "{{ subnet }}"
-
-            access_configs:
-
-              - name: External NAT
-
-                type: ONE_TO_ONE_NAT
-
-                nat_ip: "{{ address }}"
+        
