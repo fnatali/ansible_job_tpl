@@ -2,7 +2,7 @@
 - name: Create a GCP VM instance
   hosts: localhost
   connection: local
-  gather_facts: true
+  gather_facts: false
   vars:
     project_id: mylab-465509   # Replace with your GCP project ID
     machine_type: n1-standard-1  # Replace with your desired machine type
