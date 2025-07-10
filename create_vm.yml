@@ -26,7 +26,7 @@
 
     zone: "europe-west3-a"
 
-    source_image: "projects/ubuntu-os-cloud/global/images/family/ubuntu-1804-lts"
+    source_image: "projects/debian-cloud/global/images/debian-12-bookworm-v20250709"
 
     subnet_cidr: "10.0.1.0/24"
 
