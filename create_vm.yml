@@ -22,7 +22,7 @@
         image: "{{ image }}"
         state: present
         network_interfaces:
-          - network: projects/{{ project_id }}/global/networks/default
+          - network: "projects/{{ project_id }}/global/networks/default"
       register: gcp_instance
     - debug:
         var: gcp_instance
