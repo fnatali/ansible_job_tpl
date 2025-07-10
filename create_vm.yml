@@ -1,3 +1,4 @@
+---
 - name: create a disk
   google.cloud.gcp_compute_disk:
     name: disk-instance
