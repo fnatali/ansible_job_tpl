@@ -28,7 +28,7 @@
 
     source_image: "projects/debian-cloud/global/images/debian-12-bookworm-v20250709"
 
-    subnet_cidr: "10.0.1.0/22"
+    subnet_cidr: "10.0.1.0/18"
 
     disk_size: 10
 
