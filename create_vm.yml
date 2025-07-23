@@ -28,7 +28,7 @@
 
     source_image: "projects/debian-cloud/global/images/debian-12-bookworm-v20250709"
 
-    subnet_cidr: "10.0.0.0/22"
+    subnet_cidr: "10.0.0.0/24"
 
     disk_size: 10
 
@@ -104,7 +104,18 @@
 
       register: subnet
 
-
+    - name: create_firewall
+      google.cloud.gcp_compute_firewall:
+        name: openports
+        allowed:
+        - ip_protocol: tcp
+          ports:
+          - '2200'
+          - '8800'
+        project: "{{ project }}"
+        auth_kind: serviceaccount
+        service_account_file: "{{ service_account_file }}"
+        state: present
 
     - name: Reserve a static IP Address
 
