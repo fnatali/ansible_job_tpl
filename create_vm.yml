@@ -110,7 +110,7 @@
         allowed:
         - ip_protocol: tcp
           ports:
-          - '2200'
+          #- '2200'
           - '8800'
         project: "{{ project }}"
         auth_kind: serviceaccount
