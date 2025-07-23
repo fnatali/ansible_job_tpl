@@ -115,6 +115,19 @@
         project: "{{ project }}"
         auth_kind: serviceaccount
         service_account_file: "{{ service_account_file }}"
+        state: absent
+    
+    - name: create_firewall
+      google.cloud.gcp_compute_firewall:
+        name: closeports
+        allowed:
+        - ip_protocol: tcp
+          ports:
+          #- '2200'
+          - '8800'
+        project: "{{ project }}"
+        auth_kind: serviceaccount
+        service_account_file: "{{ service_account_file }}"
         state: present
 
     - name: Reserve a static IP Address
