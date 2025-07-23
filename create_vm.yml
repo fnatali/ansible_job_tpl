@@ -126,7 +126,7 @@
         project: "{{ project }}"
         auth_kind: serviceaccount
         service_account_file: "{{ service_account_file }}"
-        state: absent
+        state: present
 
     - name: Reserve a static IP Address
 
