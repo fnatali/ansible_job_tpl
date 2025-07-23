@@ -14,7 +14,7 @@
 
     network_name: "test-ansible-network"
 
-    subnet_name: "test-ansible-subnet"
+    subnet_name: "test-ansible-sub"
 
     ip_name: "test-ansible-ip"
 
