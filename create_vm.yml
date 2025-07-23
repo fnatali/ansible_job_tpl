@@ -106,7 +106,7 @@
 
     - name: create_firewall
       google.cloud.gcp_compute_firewall:
-        name: AllowALLTagsSSH
+        name: allowssh
         allowed:
         - ip_protocol: tcp
           ports:
@@ -118,7 +118,7 @@
     
     - name: create_firewall
       google.cloud.gcp_compute_firewall:
-        name: AllowAllTags88
+        name: allow88
         allowed:
         - ip_protocol: tcp
           ports:
