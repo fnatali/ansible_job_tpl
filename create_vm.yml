@@ -20,7 +20,7 @@
 
     disk_name: "test-ansible-disk"
 
-    machine_name: "test-ansible"
+    machine_name: "test-ansible-vm"
 
     region: "europe-west3"
 
