@@ -106,24 +106,22 @@
 
     - name: create_firewall
       google.cloud.gcp_compute_firewall:
-        name: openports
+        name: AllowALLTagsSSH
         allowed:
         - ip_protocol: tcp
           ports:
-          #- '2200'
-          - '8800'
+          - '2200'
         project: "{{ project }}"
         auth_kind: serviceaccount
         service_account_file: "{{ service_account_file }}"
-        state: absent
+        state: present
     
     - name: create_firewall
       google.cloud.gcp_compute_firewall:
-        name: closeports
+        name: AllowAllTags88
         allowed:
         - ip_protocol: tcp
           ports:
-          #- '2200'
           - '8800'
         project: "{{ project }}"
         auth_kind: serviceaccount
