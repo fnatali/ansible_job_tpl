@@ -114,7 +114,7 @@
         project: "{{ project }}"
         auth_kind: serviceaccount
         service_account_file: "{{ service_account_file }}"
-        state: present
+        state: absent
     
     - name: create_firewall
       google.cloud.gcp_compute_firewall:
