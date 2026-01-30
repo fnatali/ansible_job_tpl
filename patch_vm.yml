@@ -1,5 +1,7 @@
 - name: Hello World Sample
   hosts: all
+  become: true
   tasks:
     - name: install updates
+      become: true
       yum: name=* state=latest
