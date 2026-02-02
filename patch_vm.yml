@@ -1,7 +1,6 @@
 - name: Hello World Sample
-  hosts: all
+  hosts: 10.0.4.183
   become: true
-  become_user: root
   tasks:
     - name: Update apt repo and cache on Ubuntu/Debian servers
       apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
