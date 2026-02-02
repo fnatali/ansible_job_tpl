@@ -2,4 +2,6 @@
   hosts: all
   tasks:
     - name: install updates
+      become_method: su
+      become: true
       yum: name=* state=latest
