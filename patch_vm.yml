@@ -1,7 +1,5 @@
 - name: Hello World Sample
   hosts: all
   tasks:
-    - name: install updates
-      become_method: sudo
-      become: true
-      yum: name=* state=latest
+    - name: Update apt repo and cache on Ubuntu/Debian servers
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
