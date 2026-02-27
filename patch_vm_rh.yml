@@ -1,0 +1,7 @@
+- name: RH upd
+  hosts: 10.0.4.138
+  become: true
+  tasks:
+    - yum: Update apt repo and cache on Ubuntu/Debian servers
+        name: '*'
+        state: latest
