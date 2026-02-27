@@ -2,6 +2,7 @@
   hosts: 10.0.4.138
   become: true
   tasks:
-    - yum: Update apt repo and cache on Ubuntu/Debian servers
-        name: *
+    - name: Install system updates for centos systems
+      yum:
+        name: '*'
         state: latest
