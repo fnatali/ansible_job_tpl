@@ -3,5 +3,5 @@
   become: true
   tasks:
     - yum: Update apt repo and cache on Ubuntu/Debian servers
-        name: '*'
+        name: "*"
         state: latest
