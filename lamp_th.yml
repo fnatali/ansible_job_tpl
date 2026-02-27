@@ -1,7 +1,6 @@
 ---
 - name: Monlithic FE
   hosts: 10.0.4.138
-  remote_user: ansible
   become: yes
 
   tasks:
