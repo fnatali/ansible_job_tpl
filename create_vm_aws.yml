@@ -9,5 +9,5 @@
       region: eu-central-1
       vpc_subnet_id: vpc-0306998a2948fbae1
       instance_type: t3.small
-      image_id: awx_save_dec25
+      image_id: ami-0e2e95b6fc9fc8034
       key_name: "fabio-natali-personal"
