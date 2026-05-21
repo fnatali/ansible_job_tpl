@@ -10,5 +10,4 @@
       vpc_subnet_id: vpc-0306998a2948fbae1
       instance_type: t3.small
       image_id: awx_save_dec25
-      name: start an instance with a public IP address
-    
+      key_name: "fabio-natali-personal"
