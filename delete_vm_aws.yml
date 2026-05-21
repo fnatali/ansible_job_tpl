@@ -1,0 +1,10 @@
+---
+- name: start an instance with a public IP address
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: Create EC2 instance with with keypair preconf
+    amazon.aws.ec2_instance:
+      name: "awx-ec2-instance"
+      region: eu-central-1
+      state: absent
