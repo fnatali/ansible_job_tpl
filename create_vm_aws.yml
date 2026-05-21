@@ -7,7 +7,7 @@
     amazon.aws.ec2_instance:
       name: "awx-ec2-instance"
       region: eu-central-1
-      vpc_subnet_id: vpc-0306998a2948fbae1
+      vpc_subnet_id: subnet-057480d3feb828c7f
       instance_type: t3.small
       image_id: ami-0e2e95b6fc9fc8034
       key_name: "fabio-natali-personal"
