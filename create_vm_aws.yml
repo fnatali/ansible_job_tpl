@@ -2,7 +2,7 @@
 - name: start an instance with a public IP address
   hosts: localhost
   gather_facts: false
-- tasks:
+  tasks:
   - name: Create EC2 instance with termination protection turned on
     amazon.aws.ec2_instance:
       name: "awx-ec2-instance"
