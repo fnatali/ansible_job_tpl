@@ -7,4 +7,4 @@
     amazon.aws.ec2_instance:
       state: absent
       filters:
-        "tag:Type": "volatilve"
+        "tag:Type": "volatile"
