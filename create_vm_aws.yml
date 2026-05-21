@@ -11,3 +11,5 @@
       instance_type: t3.small
       image_id: ami-0e2e95b6fc9fc8034
       key_name: "fabio-natali-personal"
+      tags:
+        Type: volatile
