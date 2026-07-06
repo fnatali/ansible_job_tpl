@@ -14,3 +14,7 @@
       tags:
         Type: volatile
         Color: "{{ color }}"
+        Owner: "{{ owner }}"
+        Product: "{{ product }}"
+        Description: "{{ description }}"
+        
