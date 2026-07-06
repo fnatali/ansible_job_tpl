@@ -14,8 +14,9 @@
       tags:
         Name: "{{ name }}"
         Provider: "{{ provider }}"
-        CreationDate": "{{ creationdata }}"
+        CreationDate": "{{ creationdate }}"
         ApplicationIsland: "{{ applicationisland }}"
         Environment: "{{ environment }}"
         Description: "{{ description }}"
+        Company: "{{ company }}"
         
