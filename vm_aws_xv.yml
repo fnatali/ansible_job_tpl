@@ -12,11 +12,11 @@
       image_id: ami-0e2e95b6fc9fc8034
       key_name: "fabio-natali-personal"
       tags:
-        Name: "{{ name }}"
-        Provider: "{{ provider }}"
-        CreationDate": "{{ creationdate }}"
-        ApplicationIsland: "{{ applicationisland }}"
-        Environment: "{{ environment }}"
-        Description: "{{ description }}"
-        Company: "{{ company }}"
+        Name: "{{ Name }}"
+        Provider: "{{ Provider }}"
+        CreationDate": "{{ Creation_Date }}"
+        ApplicationIsland: "{{ Application_Island }}"
+        Environment: "{{ Environment }}"
+        Description: "{{ Description }}"
+        Company: "{{ Company }}"
         
